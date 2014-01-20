@@ -11,4 +11,5 @@ GLUON_SITE_PACKAGES := \
 	iptables \
 	kmod-ipt-nathelper \
 	firewall \
-	haveged
+	haveged \
+	location-upgrade

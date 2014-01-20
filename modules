@@ -1,0 +1,4 @@
+GLUON_SITE_FEEDS='ffhb'
+
+PACKAGES_FFHB_REPO=git://github.com/FreifunkBremen/ffhb-packages.git
+PACKAGES_FFHB_COMMIT=1e70be895316d2cd948bdcc67f287a21f7cb3d95
