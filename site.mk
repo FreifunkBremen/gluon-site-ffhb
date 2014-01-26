@@ -12,4 +12,4 @@ GLUON_SITE_PACKAGES := \
 	kmod-ipt-nathelper \
 	firewall \
 	haveged \
-	location-upgrade
+	gluon-location-upgrade
