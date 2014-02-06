@@ -12,4 +12,5 @@ GLUON_SITE_PACKAGES := \
 	kmod-ipt-nathelper \
 	firewall \
 	haveged \
-	gluon-location-upgrade
+	gluon-status-page \
+	gluon-next-node
