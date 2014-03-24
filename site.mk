@@ -1,7 +1,6 @@
 GLUON_SITE_PACKAGES := \
 	gluon-alfred \
 	gluon-autoupdater \
-	gluon-autoupdater-switcher \
 	gluon-config-mode \
 	gluon-luci-admin \
 	gluon-luci-autoupdater \
