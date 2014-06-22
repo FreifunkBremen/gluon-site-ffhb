@@ -2,6 +2,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-alfred \
 	gluon-autoupdater \
 	gluon-config-mode \
+	gluon-firewall \
 	gluon-luci-admin \
 	gluon-luci-autoupdater \
 	gluon-mesh-batman-adv \
