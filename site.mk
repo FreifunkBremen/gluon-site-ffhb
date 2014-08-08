@@ -3,9 +3,14 @@ GLUON_SITE_PACKAGES := \
 	gluon-announced \
 	gluon-ath9k-workaround \
 	gluon-autoupdater \
-	gluon-config-mode \
+	gluon-config-mode-hostname \
+	gluon-config-mode-autoupdater \
+	gluon-config-mode-mesh-vpn \
+	gluon-config-mode-geo-location \
+	gluon-config-mode-contact-info \
 	gluon-luci-admin \
 	gluon-luci-autoupdater \
+	gluon-luci-private-wifi \
 	gluon-mesh-batman-adv \
 	gluon-mesh-vpn-fastd \
 	gluon-next-node \
