@@ -15,6 +15,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-mesh-vpn-fastd \
 	gluon-next-node \
 	gluon-status-page \
+	gluon-wan-dnsmasq-static \
 	iputils-ping6 \
 	iwinfo \
 	iptables \
