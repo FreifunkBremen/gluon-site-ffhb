@@ -4,6 +4,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-announced \
 	gluon-ath9k-workaround \
 	gluon-autoupdater \
+	gluon-channel-survey \
 	gluon-config-mode-hostname \
 	gluon-config-mode-autoupdater \
 	gluon-config-mode-mesh-vpn \
@@ -14,6 +15,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-luci-private-wifi \
 	gluon-mesh-vpn-fastd \
 	gluon-next-node \
+	gluon-speedtest \
 	gluon-status-page \
 	gluon-wan-dnsmasq-static \
 	iputils-ping6 \
