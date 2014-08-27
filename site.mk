@@ -2,7 +2,6 @@ GLUON_SITE_PACKAGES := \
 	gluon-mesh-batman-adv-14 \
 	gluon-alfred \
 	gluon-announced \
-	gluon-ath9k-workaround \
 	gluon-autoupdater \
 	gluon-channel-survey \
 	gluon-config-mode-hostname \
