@@ -9,6 +9,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-config-mode-mesh-vpn \
 	gluon-config-mode-geo-location \
 	gluon-config-mode-contact-info \
+	gluon-ebtables-filter-ra-dhcp \
 	gluon-luci-admin \
 	gluon-luci-autoupdater \
 	gluon-luci-private-wifi \
