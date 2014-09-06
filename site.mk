@@ -25,7 +25,7 @@ GLUON_SITE_PACKAGES := \
 	firewall \
 	haveged
 
-DEFAULT_GLUON_RELEASE := 0.5~testing4-nightly$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 0.5~testing5-nightly$(shell date '+%Y%m%d')
 DEFAULT_GLUON_PRIORITY := 0
 
 # Allow overriding the release number from the command line
