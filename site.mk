@@ -15,6 +15,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-luci-private-wifi \
 	gluon-mesh-vpn-fastd \
 	gluon-next-node \
+	gluon-radvd \
 	gluon-setup-mode \
 	gluon-speedtest \
 	gluon-status-page \
