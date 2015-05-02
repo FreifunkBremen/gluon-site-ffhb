@@ -1,4 +1,5 @@
 GLUON_SITE_PACKAGES := \
+	ffhb-migrate-static-dns \
 	gluon-mesh-batman-adv-14 \
 	gluon-alfred \
 	gluon-announced \
