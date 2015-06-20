@@ -1,9 +1,9 @@
 GLUON_SITE_PACKAGES := \
-	ffhb-migrate-static-dns \
 	gluon-mesh-batman-adv-14 \
 	gluon-alfred \
 	gluon-announced \
 	gluon-autoupdater \
+	gluon-autoupdater-switcher \
 	gluon-config-mode-hostname \
 	gluon-config-mode-autoupdater \
 	gluon-config-mode-mesh-vpn \
