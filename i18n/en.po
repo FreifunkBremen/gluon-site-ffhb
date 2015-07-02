@@ -12,7 +12,7 @@ msgstr ""
 
 msgid "gluon-config-mode:welcome"
 msgstr ""
-"Welcome to the setup wizard of your new Freifunk Bremen node."
+"Welcome to the setup wizard of your new Freifunk Bremen node. "
 "Fill out the following form to your liking and submit it."
 
 msgid "gluon-config-mode:pubkey"
@@ -20,7 +20,7 @@ msgstr ""
 
 msgid "gluon-config-mode:reboot"
 msgstr ""
-"<p>Your node is currently rebooting and will try to connect to other"
+"<p>Your node is currently rebooting and will try to connect to other "
 "nearby Freifunk nodes afterwards. "
 "You can find lots of information on the Freifunk Bremen community on "
 "<a href=\"http://bremen.freifunk.net/\">our website</a>.</p>"
