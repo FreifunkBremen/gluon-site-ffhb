@@ -1,0 +1,3 @@
+[submodule "gluon"]
+	path = gluon
+	url = https://github.com/freifunk-gluon/gluon.git
