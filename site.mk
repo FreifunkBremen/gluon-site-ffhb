@@ -1,26 +1,7 @@
 GLUON_SITE_PACKAGES := \
-	gluon-mesh-batman-adv-14 \
+	ffhb-breminale \
 	gluon-alfred \
-	gluon-announced \
-	gluon-autoupdater \
-	gluon-config-mode-core \
-	gluon-config-mode-hostname \
-	gluon-config-mode-autoupdater \
-	gluon-config-mode-mesh-vpn \
-	gluon-config-mode-geo-location \
-	gluon-config-mode-contact-info \
-	gluon-ebtables-filter-ra-dhcp \
-	gluon-luci-admin \
-	gluon-luci-autoupdater \
-	gluon-luci-portconfig \
-	gluon-luci-private-wifi \
-	gluon-mesh-vpn-fastd \
-	gluon-next-node \
-	gluon-radvd \
-	gluon-setup-mode \
-	gluon-speedtest \
-	gluon-status-page \
-	gluon-wan-dnsmasq-static \
+	gluon-authorized-keys \
 	iputils-ping6 \
 	iwinfo \
 	iptables \
@@ -28,7 +9,7 @@ GLUON_SITE_PACKAGES := \
 	firewall \
 	haveged
 
-DEFAULT_GLUON_RELEASE := 0.7~+nightly$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 2015.1.1+breminale1
 DEFAULT_GLUON_PRIORITY := 0
 
 # Allow overriding the release number and languages from the command line
