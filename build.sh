@@ -32,7 +32,7 @@ is_based_on() {
 
 extract_local_version() {
   local_version_tmp="${1#*+${LOCAL_SUFFIX}}"
-  local_version="${local_version_tmp%~testing}"
+  echo "${local_version_tmp%~testing}"
 }
 
 if [ "$#" != 1 ]; then
