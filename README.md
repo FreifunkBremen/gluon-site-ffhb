@@ -20,3 +20,5 @@ git -C gluon checkout $tag
 Das Script `build.sh` versucht die richtige Versionsnummer automatisch aus dem gewählten Gluon-Tag und der letzten veröffentlichten Testing-Version zu bestimmen, sie kann aber auch manuell eingegeben werden. Will man stattdessen eine Stable bauen, ändert man einfach nur das `testing` in der letzten Zeile zu `stable`.
 
 Lief der Build-Prozess erfolgreich durch, liegen in `gluon/images/` die fertigen Images inklusive eines Manifests für den Autoupdater, das schon mit dem eigenen ECDSA-Key signiert wurde falls dieser unter `~/.ecdsakey` liegt.
+
+Will man ohne `build.sh` manuell `make` im Verzeichnis gluon aufrufen, wie in der [offiziellen Gluon-Doku](https://gluon.readthedocs.org/en/v2015.1.1/user/getting_started.html#building-the-images), muss man *jedem* Aufruf von `make` den Parameter `GLUON_SITEDIR=$PWD/../` nachstellen (oder wie in `build.sh` einmal per `export GLUON_SITEDIR=$PWD/../` setzen).
