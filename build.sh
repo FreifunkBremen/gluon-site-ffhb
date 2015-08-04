@@ -35,9 +35,9 @@ extract_local_version() {
   echo "${local_version_tmp%~testing}"
 }
 
-if [ "$#" != 1 ]; then
+if [ "$#" = 0 ]; then
   cat <<USAGE
-Usage: $(basename $0) <branch>
+Usage: $(basename $0) [--debug] <branch>
 
 This script takes the intended branch, "testing" or "stable", as the single
 parameter. It then tries to autodetermine the correct release name, builds
@@ -46,6 +46,12 @@ x86*), and optionally signs it if an ecdsutils keyfile is found (standard path:
 ~/.ecdsakey)
 USAGE
   exit 1
+fi
+
+debug=
+if [ "$1" = "--debug" ]; then
+    debug=1
+    shift
 fi
 
 branch="$1"
@@ -84,11 +90,18 @@ case "$branch" in
     ;;
 esac
 
+# calculate number of threads
+if [ -z "$debug" ]; then
+    proc_num="$(($(grep -c '^processor\s' /proc/cpuinfo) + 1))"
+else
+    proc_num=1
+fi
+
 cd "$GLUON_DIR"
-make update
+make update ${debug:+V=s}
 for target in ar71xx-generic ar71xx-nand mpc85xx-generic; do
-  make clean GLUON_TARGET="$target"
-  make -j5 GLUON_TARGET="$target"
+  make clean GLUON_TARGET="$target" ${debug:+V=s}
+  make -j${proc_num} GLUON_TARGET="$target" ${debug:+V=s}
 done
 make manifest
 cd ..
