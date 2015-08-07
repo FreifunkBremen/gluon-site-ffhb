@@ -2,16 +2,16 @@
 
 Um die Bremer Firmware zu bauen sind folgende Vorbereitungen notwendig:
 ```sh
-# Dieses Repository clonen
-git clone https://github.com/FreifunkBremen/gluon-site-ffhb.git
-# In das Verzeichnis wechseln
-cd gluon-site-ffhb/
-# Gluon selbst clonen
-git submodule update --init
+# Dieses und das Gluon-Repository clonen
+git clone --recursive https://github.com/FreifunkBremen/gluon-site-ffhb.git
+# Build-Dependencies installieren (Debian)
+sudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev unzip gawk
 ```
 
 Um eine neue Testing-Version der Bremer Firmware zu bauen sind folgende Befehle nötig:
 ```sh
+# In das Verzeichnis wechseln
+cd gluon-site-ffhb/
 # Gluon auf die gewünschte Version bringen ($tag ist z.B. v2015.1.1)
 git -C gluon checkout $tag
 # Build-Prozess anstoßen
