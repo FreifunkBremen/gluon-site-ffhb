@@ -99,7 +99,7 @@ fi
 
 cd "$GLUON_DIR"
 make update ${debug:+V=s}
-for target in ar71xx-generic ar71xx-nand mpc85xx-generic; do
+for target in ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic; do
   make clean GLUON_TARGET="$target" ${debug:+V=s}
   make -j${proc_num} GLUON_TARGET="$target" ${debug:+V=s}
 done
