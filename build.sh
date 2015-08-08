@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /usr/bin/env sh
 
 FIRMWARE_URL="http://downloads.bremen.freifunk.net/firmware/"
 LOCAL_SUFFIX="bremen"
