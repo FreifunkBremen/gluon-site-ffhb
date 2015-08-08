@@ -107,5 +107,5 @@ make manifest
 cd ..
 
 if [ -n "$KEYFILE" -a -r "$KEYFILE" ]; then
-	"${GLUON_DIR}/contrib/sign.sh" "$KEYFILE" "${GLUON_DIR}/images/sysupgrade/${GLUON_BRANCH}.manifest"
+  "${GLUON_DIR}/contrib/sign.sh" "$KEYFILE" "${GLUON_DIR}/images/sysupgrade/${GLUON_BRANCH}.manifest"
 fi
