@@ -2,10 +2,10 @@
 
 Um die Bremer Firmware zu bauen sind folgende Vorbereitungen notwendig:
 ```sh
+# Build-Dependencies installieren (Debian)
+sudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev unzip gawk git
 # Dieses und das Gluon-Repository clonen
 git clone --recursive https://github.com/FreifunkBremen/gluon-site-ffhb.git
-# Build-Dependencies installieren (Debian)
-sudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev unzip gawk
 ```
 
 Um eine neue Testing-Version der Bremer Firmware zu bauen sind folgende Befehle nötig:
