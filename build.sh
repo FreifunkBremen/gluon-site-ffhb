@@ -90,6 +90,10 @@ case "$branch" in
     ;;
 esac
 
+if [ "$branch" = "stable" ]; then
+    export GLUON_PRIORITY=7
+fi
+
 # calculate number of threads
 if [ -z "$debug" ]; then
     proc_num="$(($(grep -c '^processor\s' /proc/cpuinfo) + 1))"
