@@ -24,7 +24,6 @@ GLUON_SITE_PACKAGES := \
 	iputils-ping6 \
 	iwinfo \
 	iptables \
-	kmod-ipt-nathelper \
 	firewall \
 	haveged
 
