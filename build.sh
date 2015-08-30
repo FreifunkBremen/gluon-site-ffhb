@@ -7,9 +7,9 @@ KEYFILE="$HOME/.ecdsakey"
 
 set -eu
 
-export GLUON_SITEDIR="$(dirname "$(readlink -f "$0")")"
+export GLUON_SITEDIR="$(dirname "$(realpath "$0")")"
 
-get_gluon_tag() {
+get_GLUON_TAG() {
   if ! git --git-dir="${GLUON_DIR}/.git" describe --exact-match; then
     echo 'The gluon tree is not checked out at a tag.'
     echo 'Please use `git checkout <tagname>` to use an official gluon release'
@@ -54,43 +54,69 @@ if [ "$1" = "--debug" ]; then
     shift
 fi
 
-branch="$1"
-case "$branch" in
-  testing|stable)
-    gluon_tag="$(get_gluon_tag)"
-    # remove prefixed "v"
-    gluon_tag="${gluon_tag#v}"
-    echo "Building Gluon ${gluon_tag} as ${branch}"
-    last_release_testing="$(get_last_release testing)"
-    last_release_stable="$(get_last_release stable)"
-    echo "Last release in branch testing was ${last_release_testing}"
-    if is_based_on "$last_release_testing" "$gluon_tag"; then
-      local_version="$(extract_local_version "$last_release_testing")"
-      if [ "$branch" != "stable" ]; then
-        local_version="$(($local_version + 1))"
-      fi
-    elif [ "$branch" = "stable" ] && is_based_on "$last_release_stable" "$gluon_tag"; then
-      local_version="$(extract_local_version "$last_release_stable")"
-      local_version="$(($local_version + 1))"
-    else
-      # new gluon version => reset local version number
-      local_version=1
-    fi
-    if [ "$branch" = "testing" ]; then
-      local_version="${local_version}~testing"
-    fi
-    auto_determined_release="${gluon_tag}+${LOCAL_SUFFIX}${local_version}"
-    read -p "Release name for this build [default: ${auto_determined_release}]: " GLUON_RELEASE
-    export GLUON_RELEASE="${GLUON_RELEASE:-$auto_determined_release}"
-    export GLUON_BRANCH="$branch"
-    ;;
-  *)
-    echo "Branch not supported yet!"
-    exit 1
-    ;;
-esac
+GLUON_BRANCH="$1"
 
-if [ "$branch" = "stable" ]; then
+if [ "$GLUON_BRANCH" != "testing" -a "$GLUON_BRANCH" != "stable" ]; then
+  echo "Branch not supported yet!"
+  exit 1
+fi
+
+GLUON_TAG="$(get_GLUON_TAG)"
+# remove prefixed "v"
+GLUON_TAG="${GLUON_TAG#v}"
+
+statefile="${GLUON_SITEDIR}/.build.${GLUON_BRANCH}.${GLUON_TAG}"
+cont=false
+
+if [ -f "$statefile" ]; then
+  echo "A previous build for this version was aborted."
+  echo "These were the parameters:"
+  cat "$statefile"
+  echo "You can now either continue the previous build or begin a new one"
+  echo "and overwrite the old state file."
+  read -p "Do you want to continue the previous build? [Yn] " answer
+  case "${answer:-y}" in
+    [yY]*)
+      . "$statefile"
+      cont=true
+      ;;
+    *)
+      rm "$statefile"
+      ;;
+  esac
+fi
+if ! $cont; then
+  echo "Building Gluon ${GLUON_TAG} as ${GLUON_BRANCH}"
+  last_release_testing="$(get_last_release testing)"
+  last_release_stable="$(get_last_release stable)"
+  echo "Last release in branch testing was ${last_release_testing}"
+  if is_based_on "$last_release_testing" "$GLUON_TAG"; then
+    local_version="$(extract_local_version "$last_release_testing")"
+    if [ "$GLUON_BRANCH" != "stable" ]; then
+      local_version="$(($local_version + 1))"
+    fi
+  elif [ "$GLUON_BRANCH" = "stable" ] && is_based_on "$last_release_stable" "$GLUON_TAG"; then
+    local_version="$(extract_local_version "$last_release_stable")"
+    local_version="$(($local_version + 1))"
+  else
+    # new gluon version => reset local version number
+    local_version=1
+  fi
+  if [ "$GLUON_BRANCH" = "testing" ]; then
+    local_version="${local_version}~testing"
+  fi
+  auto_determined_release="${GLUON_TAG}+${LOCAL_SUFFIX}${local_version}"
+  read -p "Release name for this build [default: ${auto_determined_release}]: " GLUON_RELEASE
+  GLUON_RELEASE="${GLUON_RELEASE:-$auto_determined_release}"
+
+  cat > "$statefile" <<EOF
+GLUON_TAG="${GLUON_TAG}"
+GLUON_BRANCH="${GLUON_BRANCH}"
+GLUON_RELEASE="${GLUON_RELEASE}"
+EOF
+fi
+
+if [ "$GLUON_BRANCH" = "stable" ]; then
     export GLUON_PRIORITY=7
 fi
 
@@ -102,10 +128,26 @@ else
 fi
 
 cd "$GLUON_DIR"
-make update ${debug:+V=s}
+export GLUON_BRANCH GLUON_RELEASE
+if ! $cont; then
+  make update ${debug:+V=s}
+fi
+
 for target in ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic; do
-  make clean GLUON_TARGET="$target" ${debug:+V=s}
+  env_target="$(echo "$target" | tr '-' '_')"
+  set +u
+  if eval "[ \"\$TARGET_${env_target}_DONE\" = 1 ]"; then
+    continue
+  fi
+  set -u
+  echo "Building target ${target}"
+  if $cont; then
+    cont=false
+  else
+    make clean GLUON_TARGET="$target" ${debug:+V=s}
+  fi
   make -j${proc_num} GLUON_TARGET="$target" ${debug:+V=s}
+  echo "TARGET_${env_target}_DONE=1" >> "$statefile"
 done
 make manifest
 cd ..
@@ -113,3 +155,5 @@ cd ..
 if [ -n "$KEYFILE" -a -r "$KEYFILE" ]; then
   "${GLUON_DIR}/contrib/sign.sh" "$KEYFILE" "${GLUON_DIR}/images/sysupgrade/${GLUON_BRANCH}.manifest"
 fi
+
+rm "$statefile"
