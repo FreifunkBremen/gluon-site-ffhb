@@ -16,7 +16,7 @@ msgstr ""
 "Fill out the following form to your liking and submit it."
 
 msgid "gluon-config-mode:pubkey"
-msgstr ""
+msgstr "<!-- empty -->"
 
 msgid "gluon-config-mode:reboot"
 msgstr ""
