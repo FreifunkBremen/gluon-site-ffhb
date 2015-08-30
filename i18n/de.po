@@ -17,7 +17,7 @@ msgstr ""
 "entsprechend aus und sende es ab. "
 
 msgid "gluon-config-mode:pubkey"
-msgstr ""
+msgstr "<!-- empty -->"
 
 msgid "gluon-config-mode:reboot"
 msgstr ""
