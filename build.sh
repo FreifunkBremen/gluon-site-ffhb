@@ -7,7 +7,12 @@ KEYFILE="$HOME/.ecdsakey"
 
 set -eu
 
-export GLUON_SITEDIR="$(dirname "$(realpath "$0")")"
+if which realpath > /dev/null; then
+  GLUON_SITEDIR="$(dirname "$(realpath "$0")")"
+else
+  GLUON_SITEDIR="$(dirname "$(readlink -f "$0")")"
+fi
+export GLUON_SITEDIR
 
 get_GLUON_TAG() {
   if ! git --git-dir="${GLUON_DIR}/.git" describe --exact-match; then
