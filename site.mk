@@ -1,7 +1,7 @@
 GLUON_SITE_PACKAGES := \
 	gluon-mesh-batman-adv-14 \
 	gluon-alfred \
-	gluon-announced \
+	gluon-respondd \
 	gluon-autoupdater \
 	gluon-config-mode-core \
 	gluon-config-mode-hostname \
@@ -24,7 +24,6 @@ GLUON_SITE_PACKAGES := \
 	iputils-ping6 \
 	iwinfo \
 	iptables \
-	kmod-ipt-nathelper \
 	firewall \
 	haveged
 
