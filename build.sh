@@ -94,13 +94,17 @@ if ! $cont; then
   echo "Building Gluon ${GLUON_TAG} as ${GLUON_BRANCH}"
   last_release_testing="$(get_last_release testing)"
   last_release_stable="$(get_last_release stable)"
-  echo "Last release in branch testing was ${last_release_testing}"
-  if is_based_on "$last_release_testing" "$GLUON_TAG"; then
+  if [ "${GLUON_BRANCH}" = "testing" ]; then
+    echo "Last release in branch testing was ${last_release_testing}"
+  elif [ "${GLUON_BRANCH}" = "stable" ]; then
+    echo "Last release in branch stable was ${last_release_stable}"
+  fi
+  if [ "$GLUON_BRANCH" = "testing" ] && is_based_on "$last_release_testing" "$GLUON_TAG"; then
+    # same gluon version for new testing=> local version number +1
     local_version="$(extract_local_version "$last_release_testing")"
-    if [ "$GLUON_BRANCH" != "stable" ]; then
-      local_version="$(($local_version + 1))"
-    fi
+    local_version="$(($local_version + 1))"
   elif [ "$GLUON_BRANCH" = "stable" ] && is_based_on "$last_release_stable" "$GLUON_TAG"; then
+    # same gluon version for new stable => local version number +1
     local_version="$(extract_local_version "$last_release_stable")"
     local_version="$(($local_version + 1))"
   else
