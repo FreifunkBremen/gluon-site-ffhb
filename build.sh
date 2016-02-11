@@ -40,32 +40,26 @@ extract_local_version() {
   echo "${local_version_tmp%~testing}"
 }
 
-if [ "$#" = 0 ]; then
-  cat <<USAGE
-Usage: $(basename $0) [--debug] <branch>
-
-This script takes the intended branch, "testing" or "stable", as the single
-parameter. It then tries to autodetermine the correct release name, builds
-gluon for the corresponding branch and all supported platforms (excluding
-x86*), and optionally signs it if an ecdsutils keyfile is found (standard path:
-~/.ecdsakey)
-USAGE
-  exit 1
-fi
-
 debug=
-if [ "$1" = "--debug" ]; then
-    debug=1
-    shift
+if [ "$#" -gt 0 ]; then
+  if [ "$1" = '-h' -o "$1" = '--help' ]; then
+    cat <<USAGE
+Usage: $(basename $0) [--debug]
+
+This script tries to autodetermine the correct release name, builds gluon for
+all supported platforms (excluding x86*), and optionally signs it if an
+ecdsutils keyfile is found (standard path: ~/.ecdsakey)
+USAGE
+    exit 1
+  fi
+
+  if [ "$1" = "--debug" ]; then
+      debug=1
+      shift
+  fi
 fi
 
-GLUON_BRANCH="$1"
-
-if [ "$GLUON_BRANCH" != "testing" -a "$GLUON_BRANCH" != "stable" ]; then
-  echo "Branch not supported yet!"
-  exit 1
-fi
-
+GLUON_BRANCH="stable"
 GLUON_TAG="$(get_GLUON_TAG)"
 # remove prefixed "v"
 GLUON_TAG="${GLUON_TAG#v}"
@@ -94,21 +88,14 @@ if ! $cont; then
   echo "Building Gluon ${GLUON_TAG} as ${GLUON_BRANCH}"
   last_release_testing="$(get_last_release testing)"
   last_release_stable="$(get_last_release stable)"
-  echo "Last release in branch testing was ${last_release_testing}"
-  if is_based_on "$last_release_testing" "$GLUON_TAG"; then
-    local_version="$(extract_local_version "$last_release_testing")"
-    if [ "$GLUON_BRANCH" != "stable" ]; then
-      local_version="$(($local_version + 1))"
-    fi
-  elif [ "$GLUON_BRANCH" = "stable" ] && is_based_on "$last_release_stable" "$GLUON_TAG"; then
-    local_version="$(extract_local_version "$last_release_stable")"
+  last_release="$(echo "${last_release_testing}\n${last_release_stable}" | sort -V | tail -n1)"
+  echo "Last release was ${last_release}"
+  if is_based_on "$last_release" "$GLUON_TAG"; then
+    local_version="$(extract_local_version "$last_release")"
     local_version="$(($local_version + 1))"
   else
     # new gluon version => reset local version number
     local_version=1
-  fi
-  if [ "$GLUON_BRANCH" = "testing" ]; then
-    local_version="${local_version}~testing"
   fi
   auto_determined_release="${GLUON_TAG}+${LOCAL_SUFFIX}${local_version}"
   read -p "Release name for this build [default: ${auto_determined_release}]: " GLUON_RELEASE
@@ -155,6 +142,7 @@ for target in ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic; do
   echo "TARGET_${env_target}_DONE=1" >> "$statefile"
 done
 make manifest
+make manifest GLUON_BRANCH=testing GLUON_PRIORITY=0
 cd ..
 
 if [ -n "$KEYFILE" -a -r "$KEYFILE" ]; then
