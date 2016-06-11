@@ -14,6 +14,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-luci-autoupdater \
 	gluon-luci-portconfig \
 	gluon-luci-private-wifi \
+	gluon-luci-wifi-config \
 	gluon-mesh-vpn-fastd \
 	gluon-next-node \
 	gluon-radvd \
@@ -27,10 +28,8 @@ GLUON_SITE_PACKAGES := \
 	firewall \
 	haveged
 
-DEFAULT_GLUON_RELEASE := 0.7~+nightly$(shell date '+%Y%m%d')
 DEFAULT_GLUON_PRIORITY := 0
 
 # Allow overriding the release number and languages from the command line
-GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
 GLUON_PRIORITY ?= $(DEFAULT_GLUON_PRIORITY)
 GLUON_LANGS ?= en de
