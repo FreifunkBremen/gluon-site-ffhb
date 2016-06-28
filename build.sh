@@ -88,7 +88,7 @@ if ! $cont; then
   echo "Building Gluon ${GLUON_TAG} as ${GLUON_BRANCH}"
   last_release_testing="$(get_last_release testing)"
   last_release_stable="$(get_last_release stable)"
-  last_release="$(echo "${last_release_testing}\n${last_release_stable}" | sort -V | tail -n1)"
+  last_release="$(echo -e "${last_release_testing}\n${last_release_stable}" | sort -V | tail -n1)"
   echo "Last release was ${last_release}"
   if is_based_on "$last_release" "$GLUON_TAG"; then
     local_version="$(extract_local_version "$last_release")"
