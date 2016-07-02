@@ -2,6 +2,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-alfred \
 	gluon-respondd \
 	gluon-respondd-wifisettings \
+	gluon-respondd-airtime \
 	gluon-ebtables-filter-ra-dhcp \
 	gluon-authorized-keys \
 	iputils-ping6 \
