@@ -125,7 +125,7 @@ if ! $cont; then
   make update ${debug:+V=s}
 fi
 
-for target in ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic; do
+for target in ar71xx-generic; do
   env_target="$(echo "$target" | tr '-' '_')"
   set +u
   if eval "[ \"\$TARGET_${env_target}_DONE\" = 1 ]"; then
