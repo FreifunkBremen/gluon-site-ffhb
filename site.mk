@@ -1,5 +1,6 @@
 GLUON_SITE_PACKAGES := \
 	gluon-alfred \
+	gluon-client-bridge \
 	gluon-respondd \
 	gluon-respondd-airtime \
 	gluon-respondd-lldp \
