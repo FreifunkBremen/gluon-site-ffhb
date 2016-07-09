@@ -5,11 +5,13 @@ GLUON_SITE_PACKAGES := \
 	gluon-respondd-lldp \
 	gluon-respondd-wifisettings \
 	gluon-ebtables-filter-ra-dhcp \
+	gluon-ebtables-filter-multicast \
 	gluon-authorized-keys \
 	iputils-ping6 \
 	iwinfo \
 	iptables \
 	firewall \
+	ffhb-breminale \
 	reghack \
 	haveged
 
