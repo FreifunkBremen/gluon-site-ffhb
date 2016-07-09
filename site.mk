@@ -7,6 +7,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-respondd-wifisettings \
 	gluon-ebtables-filter-ra-dhcp \
 	gluon-ebtables-filter-multicast \
+	gluon-node-info \
 	gluon-authorized-keys \
 	iputils-ping6 \
 	iwinfo \
