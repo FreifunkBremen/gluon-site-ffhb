@@ -3,7 +3,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-client-bridge \
 	gluon-respondd \
 	gluon-respondd-airtime \
-	gluon-respondd-lldp \
+	gluon-respondd-clients \
 	gluon-respondd-wifisettings \
 	gluon-ebtables-filter-ra-dhcp \
 	gluon-ebtables-filter-multicast \
