@@ -34,3 +34,4 @@ DEFAULT_GLUON_PRIORITY := 0
 # Allow overriding the release number and languages from the command line
 GLUON_PRIORITY ?= $(DEFAULT_GLUON_PRIORITY)
 GLUON_LANGS ?= en de
+GLUON_REGION ?= eu
