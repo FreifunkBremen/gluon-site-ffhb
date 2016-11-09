@@ -146,7 +146,7 @@ make manifest GLUON_BRANCH=testing GLUON_PRIORITY=0
 cd ..
 
 if [ -n "$KEYFILE" -a -r "$KEYFILE" ]; then
-  "${GLUON_DIR}/contrib/sign.sh" "$KEYFILE" "${GLUON_DIR}/output/images/sysupgrade/${GLUON_BRANCH}.manifest"
+  "${GLUON_DIR}/contrib/sign.sh" "$KEYFILE" "${GLUON_DIR}/output/images/sysupgrade/testing.manifest"
 fi
 
 rm "$statefile"
