@@ -30,10 +30,9 @@ GLUON_SITE_PACKAGES := \
 	firewall \
 	haveged
 
-DEFAULT_GLUON_PRIORITY := 0
-
-# Allow overriding the release number and languages from the command line
-GLUON_PRIORITY ?= $(DEFAULT_GLUON_PRIORITY)
+# Allow overriding the these variables from the command line
+GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
+GLUON_PRIORITY ?= 0
 GLUON_LANGS ?= en de
 GLUON_REGION ?= eu
 GLUON_ATH10K_MESH ?= ibss
