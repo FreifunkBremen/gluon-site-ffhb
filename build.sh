@@ -146,6 +146,7 @@ make manifest GLUON_BRANCH=testing GLUON_PRIORITY=0
 cd ..
 
 if [ -n "$KEYFILE" -a -r "$KEYFILE" ]; then
+  sed -i -e "/^BRANCH=testing/ a BRANCH=nightly" "${GLUON_DIR}/output/images/sysupgrade/testing.manifest"
   "${GLUON_DIR}/contrib/sign.sh" "$KEYFILE" "${GLUON_DIR}/output/images/sysupgrade/testing.manifest"
 fi
 
