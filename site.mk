@@ -25,7 +25,6 @@ GLUON_SITE_PACKAGES := \
 	gluon-setup-mode \
 	gluon-speedtest \
 	gluon-status-page \
-	gluon-wan-dnsmasq-static \
 	iputils-ping6 \
 	iwinfo \
 	iptables \
