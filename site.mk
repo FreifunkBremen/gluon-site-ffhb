@@ -12,14 +12,13 @@ GLUON_SITE_PACKAGES := \
 	gluon-ebtables-filter-multicast \
 	gluon-ebtables-filter-ra-dhcp \
 	gluon-ebtables-segment-mld \
-	gluon-luci-admin \
-	gluon-luci-autoupdater \
-	gluon-luci-mesh-vpn-fastd \
-	gluon-luci-portconfig \
-	gluon-luci-private-wifi \
-	gluon-luci-wifi-config \
+	gluon-web-admin \
+	gluon-web-autoupdater \
+	gluon-web-mesh-vpn-fastd \
+	gluon-web-network \
+	gluon-web-private-wifi \
+	gluon-web-wifi-config \
 	gluon-mesh-vpn-fastd \
-	gluon-next-node \
 	gluon-radv-filterd \
 	gluon-radvd \
 	gluon-setup-mode \
@@ -31,10 +30,10 @@ GLUON_SITE_PACKAGES := \
 	firewall \
 	haveged
 
-# Variables set with ?= can be overwritten from the command line
+# Allow overriding the these variables from the command line
 GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
 export GLUON_BRANCH ?= stable
-GLUON_PRIORITY ?= 7
+GLUON_PRIORITY ?= 0
 GLUON_LANGS ?= en de
 GLUON_REGION ?= eu
 GLUON_ATH10K_MESH ?= ibss
