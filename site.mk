@@ -11,6 +11,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-config-mode-contact-info \
 	gluon-ebtables-filter-multicast \
 	gluon-ebtables-filter-ra-dhcp \
+	gluon-ebtables-segment-mld \
 	gluon-luci-admin \
 	gluon-luci-autoupdater \
 	gluon-luci-mesh-vpn-fastd \
