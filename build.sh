@@ -2,7 +2,7 @@
 
 # environmental and build settings
 KEYFILE="${KEYFILE:-"$HOME/.ecdsakey"}"
-GLUON_TARGETS="${GLUON_TARGETS:-"ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic"}"
+GLUON_TARGETS="${GLUON_TARGETS:-"ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic x86-64"}"
 GLUON_PRIORITY="${GLUON_PRIORITY:-7}"
 
 # start of script
