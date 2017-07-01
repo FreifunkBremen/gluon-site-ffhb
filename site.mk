@@ -7,13 +7,17 @@ GLUON_SITE_PACKAGES := \
 	gluon-respondd-lldp \
 	gluon-client-bridge \
 	gluon-radvd \
-	gluon-authorized-keys \
-	ffhb-breminale \
-	ip-tiny \
+	gluon-neighbour-info \
+	gluon-node-info \
+	gluon-speedtest \
+	gluon-status-page \
+	iputils-ping6 \
 	iwinfo \
 	iptables \
-	reghack \
-	haveged
+	haveged \
+	gluon-authorized-keys \
+	ffhb-breminale \
+	reghack
 
 # Variables set with ?= can be overwritten from the command line
 GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
