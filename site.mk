@@ -1,11 +1,14 @@
 GLUON_SITE_PACKAGES := \
-	gluon-mesh-babel \
-	gluon-l3roamd \
+	gluon-mesh-batman-adv-14 \
 	gluon-respondd \
 	respondd-module-airtime \
 	respondd-module-wifisettings \
 	gluon-respondd-lldp \
+	gluon-ebtables-filter-multicast \
+	gluon-ebtables-filter-ra-dhcp \
+	gluon-ebtables-segment-mld \
 	gluon-client-bridge \
+	gluon-radv-filterd \
 	gluon-radvd \
 	gluon-neighbour-info \
 	gluon-node-info \
@@ -14,6 +17,7 @@ GLUON_SITE_PACKAGES := \
 	iputils-ping6 \
 	iwinfo \
 	iptables \
+	firewall \
 	haveged \
 	gluon-authorized-keys \
 	ffhb-breminale \
