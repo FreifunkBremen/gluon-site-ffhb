@@ -10,9 +10,9 @@ GLUON_SITE_PACKAGES := \
 	gluon-authorized-keys \
 	ffhb-breminale \
 	iputils-ping6 \
+	ip-tiny \
 	iwinfo \
 	iptables \
-	firewall \
 	reghack \
 	haveged
 
