@@ -12,7 +12,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-speedtest \
 	gluon-status-page \
 	tcpdump \
-	iputils-ping6 \
+	ip-tiny \
 	iwinfo \
 	iptables \
 	haveged \
