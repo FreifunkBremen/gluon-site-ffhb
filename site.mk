@@ -2,7 +2,6 @@ GLUON_SITE_PACKAGES := \
 	gluon-mesh-batman-adv-14 \
 	gluon-respondd \
 	respondd-module-airtime \
-	respondd-module-wifisettings \
 	gluon-respondd-lldp \
 	gluon-ebtables-filter-multicast \
 	gluon-ebtables-filter-ra-dhcp \
