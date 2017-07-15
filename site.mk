@@ -1,5 +1,6 @@
 GLUON_SITE_PACKAGES := \
-	gluon-mesh-batman-adv-14 \
+	gluon-mesh-babel \
+	gluon-l3roamd \
 	gluon-respondd \
 	respondd-module-airtime \
 	gluon-autoupdater \
@@ -9,26 +10,23 @@ GLUON_SITE_PACKAGES := \
 	gluon-config-mode-mesh-vpn \
 	gluon-config-mode-geo-location \
 	gluon-config-mode-contact-info \
-	gluon-ebtables-filter-multicast \
-	gluon-ebtables-filter-ra-dhcp \
-	gluon-ebtables-segment-mld \
-	gluon-luci-admin \
-	gluon-luci-autoupdater \
-	gluon-luci-mesh-vpn-fastd \
-	gluon-luci-portconfig \
-	gluon-luci-private-wifi \
-	gluon-luci-wifi-config \
+	gluon-web-admin \
+	gluon-web-autoupdater \
+	gluon-web-mesh-vpn-fastd \
+	gluon-web-private-wifi \
+	gluon-web-wifi-config \
 	gluon-mesh-vpn-fastd \
-	gluon-next-node \
 	gluon-radv-filterd \
+	gluon-client-bridge \
 	gluon-radvd \
 	gluon-setup-mode \
 	gluon-speedtest \
 	gluon-status-page \
 	iputils-ping6 \
+	tcpdump \
+	ip-tiny \
 	iwinfo \
 	iptables \
-	firewall \
 	haveged
 
 # Variables set with ?= can be overwritten from the command line
@@ -37,4 +35,4 @@ export GLUON_BRANCH ?= stable
 GLUON_PRIORITY ?= 7
 GLUON_LANGS ?= en de
 GLUON_REGION ?= eu
-GLUON_ATH10K_MESH ?= ibss
+GLUON_ATH10K_MESH ?= 11s
