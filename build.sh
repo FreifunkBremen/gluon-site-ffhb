@@ -2,7 +2,6 @@
 
 # environmental and build settings
 KEYFILE="${KEYFILE:-"$HOME/.ecdsakey"}"
-GLUON_TARGETS="${GLUON_TARGETS:-"ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic x86-64"}"
 GLUON_PRIORITY="${GLUON_PRIORITY:-7}"
 
 # start of script
@@ -19,6 +18,10 @@ GLUON_DIR="${GLUON_SITEDIR}/gluon/"
 # start building
 cd "${GLUON_DIR}"
 make update V=s
+
+if [ -z "${GLUON_TARGETS:-}" ]; then
+    GLUON_TARGETS="$(make list-targets)"
+fi
 
 for target in $GLUON_TARGETS; do
     echo "Building target ${target}"
