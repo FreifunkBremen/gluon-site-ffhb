@@ -19,7 +19,7 @@ git submodule update
 # Build-Prozess anstoßen
 ./build.sh
 ```
-Lief der Build-Prozess erfolgreich durch, liegen in `gluon/output/images/` die fertigen Images inklusive eines Manifests für den Autoupdater, das schon mit dem eigenen ECDSA-Key signiert wurde falls dieser unter `~/.ecdsakey` liegt. In `gluon/output/modules/` liegen außerdem per `opkg` auf dem Knoten nachinstallierbare Kernel-Module.
+Lief der Build-Prozess erfolgreich durch, liegen in `gluon/output/images/` die fertigen Images inklusive eines Manifests für den Autoupdater, das schon mit dem eigenen ECDSA-Key signiert wurde falls dieser unter `~/.ecdsakey` liegt. In `gluon/output/packages/` liegen außerdem per `opkg` auf dem Knoten nachinstallierbare Kernel-Module.
 
 Will man ohne `build.sh` manuell `make` im Verzeichnis gluon aufrufen, wie in der [offiziellen Gluon-Doku](https://gluon.readthedocs.org/en/stable/user/getting_started.html#building-the-images), muss man *jedem* Aufruf von `make` den Parameter `GLUON_SITEDIR=$PWD/../` nachstellen (oder wie in `build.sh` einmal per `export GLUON_SITEDIR=$PWD/../` setzen), damit Gluon das site-Repository findet. Alternativ kann man einen Symlink anlegen, indem man während man im site-Repository ist den Befehl `ln -s $PWD gluon/site` ausführt.
 
