@@ -25,8 +25,9 @@ Will man ohne `build.sh` manuell `make` im Verzeichnis gluon aufrufen, wie in de
 
 In jedem Fall wird der Gluon-Release-Name automatisch aus dem ausgecheckten Tag generiert - auch falls kein Tag, sondern z.B. der master-Branch ausgecheckt wurde! Falls das nicht gewünscht ist lässt sich durch folgenden Aufruf *vor* dem entsprechenden Build-Befehl (`./build.sh` oder `make`) ein eigener Release-Name festlegen:
 ```
-export GLUON_RELEASE="v2016.2.3+bremen3+my_cool_extension"
+export GLUON_RELEASE="2017.1+bremen1+dein-nickname"
 ```
+
 Analog lassen sich alle anderen `GLUON_*`-Variablen überschreiben, außerdem die folgenden `build.sh`-spezifischen Variablen:
 
 * `GLUON_TARGETS`: Welche Architekturen werden von `build.sh` gebaut
