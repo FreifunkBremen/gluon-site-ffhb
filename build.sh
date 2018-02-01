@@ -25,7 +25,6 @@ fi
 
 for target in $GLUON_TARGETS; do
     echo "Building target ${target}"
-    make clean GLUON_TARGET="$target" V=s
     schedtool -B -e \
         make --jobs=$(grep -c '^processor' /proc/cpuinfo) --output-sync=recurse \
             GLUON_TARGET="$target" V=s
