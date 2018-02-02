@@ -38,8 +38,8 @@ if [ -z "${GLUON_BRANCH:-}" ]; then
     # add BRANCH=nightly line below BRANCH=testing line
     sed -i -e "/^BRANCH=testing/ a BRANCH=nightly" \
         "${GLUON_DIR}/output/images/sysupgrade/testing.manifest"
-    ln -s testing.manifest "${GLUON_DIR}/output/images/sysupgrade/nightly.manifest"
-    ln -s testing.manifest "${GLUON_DIR}/output/images/sysupgrade/manifest"
+    ln -sf testing.manifest "${GLUON_DIR}/output/images/sysupgrade/nightly.manifest"
+    ln -sf testing.manifest "${GLUON_DIR}/output/images/sysupgrade/manifest"
 fi
 
 # sign testing/nightly manifest if key is present
