@@ -27,12 +27,18 @@ GLUON_SITE_PACKAGES := \
 	iwinfo \
 	iptables \
 	firewall \
-	haveged
+	haveged \
+	wifictld \
+	respondd-module-wifictld \
+	gluon-authorized-keys \
+	respondd-module-wifisettings \
+	respondd-module-lldp \
+	reghack
 
 # Allow overriding the these variables from the command line
 GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
-export GLUON_BRANCH ?= stable
+export GLUON_BRANCH ?= breminale
 GLUON_PRIORITY ?= 0
 GLUON_LANGS ?= en de
 GLUON_REGION ?= eu
-GLUON_WLAN_MESH ?= ibss
+GLUON_WLAN_MESH ?= 11s
