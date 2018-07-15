@@ -26,24 +26,20 @@ fi
 for target in $GLUON_TARGETS; do
     echo "Building target ${target}"
     schedtool -B -e \
-        make --jobs=$(grep -c '^processor' /proc/cpuinfo) --output-sync=recurse \
-            GLUON_TARGET="$target" V=s
+        make --jobs=$(grep -c '^processor' /proc/cpuinfo) GLUON_TARGET="$target" || \
+        make -j1 --output-sync=recurse GLUON_TARGET="$target" V=s
 done
 
 # generate manifests
 make manifest
 
 if [ -z "${GLUON_BRANCH:-}" ]; then
-    make manifest GLUON_BRANCH=testing GLUON_PRIORITY=0
-    # add BRANCH=nightly line below BRANCH=testing line
-    sed -i -e "/^BRANCH=testing/ a BRANCH=nightly" \
-        "${GLUON_DIR}/output/images/sysupgrade/testing.manifest"
-    ln -sf testing.manifest "${GLUON_DIR}/output/images/sysupgrade/nightly.manifest"
-    ln -sf testing.manifest "${GLUON_DIR}/output/images/sysupgrade/manifest"
+    make manifest GLUON_BRANCH=babel GLUON_PRIORITY=0
+    ln -sf babel.manifest "${GLUON_DIR}/output/images/sysupgrade/manifest"
 fi
 
 # sign testing/nightly manifest if key is present
 if [ -n "$KEYFILE" -a -r "$KEYFILE" ]; then
     "${GLUON_DIR}/contrib/sign.sh" "$KEYFILE" \
-        "${GLUON_DIR}/output/images/sysupgrade/testing.manifest"
+        "${GLUON_DIR}/output/images/sysupgrade/manifest"
 fi
