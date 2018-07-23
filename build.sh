@@ -2,8 +2,6 @@
 
 # environmental and build settings
 KEYFILE="${KEYFILE:-"$HOME/.ecdsakey"}"
-export BROKEN=1
-GLUON_TARGETS="${GLUON_TARGETS:-"ar71xx-generic ar71xx-nand mpc85xx-generic x86-generic x86-64 ramips-mt7621"}"
 GLUON_PRIORITY="${GLUON_PRIORITY:-7}"
 
 # start of script
