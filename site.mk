@@ -30,7 +30,6 @@ GLUON_SITE_PACKAGES := \
 	firewall \
 	haveged \
 	wifictld \
-	respondd-module-wifictld \
 	gluon-authorized-keys \
 	respondd-module-wifisettings \
 	ffhb-breminale \
