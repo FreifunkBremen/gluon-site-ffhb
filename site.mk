@@ -13,10 +13,12 @@ GLUON_SITE_PACKAGES := \
 	gluon-web-admin \
 	gluon-web-autoupdater \
 	gluon-web-mesh-vpn-fastd \
+	gluon-web-mesh-vpn-wireguard \
 	gluon-web-network \
 	gluon-web-private-wifi \
 	gluon-web-wifi-config \
 	gluon-mesh-vpn-fastd \
+	gluon-mesh-vpn-wireguard \
 	gluon-client-bridge \
 	gluon-radvd \
 	gluon-setup-mode \
@@ -26,11 +28,7 @@ GLUON_SITE_PACKAGES := \
 	iwinfo \
 	iptables \
 	gluon-iptables-clamp-mss-to-pmtu \
-	kmod-nat46 \
-	babeldev \
-	ddhcpd \
-	gluon-ddhcpd
-#	gluon-xlat464-clat	# route back from jool to clients does not exist,	(ipv4)-tcp connections break with this package when roaming
+	babeldev
 
 # Allow overriding the these variables from the command line
 GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
