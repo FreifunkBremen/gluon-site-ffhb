@@ -12,12 +12,9 @@ GLUON_SITE_PACKAGES := \
 	gluon-config-mode-contact-info \
 	gluon-web-admin \
 	gluon-web-autoupdater \
-	gluon-web-mesh-vpn-fastd \
-	gluon-web-mesh-vpn-wireguard \
 	gluon-web-network \
 	gluon-web-private-wifi \
 	gluon-web-wifi-config \
-	gluon-mesh-vpn-fastd \
 	gluon-mesh-vpn-wireguard \
 	gluon-client-bridge \
 	gluon-radvd \
@@ -45,12 +42,6 @@ DEBUG_PACKAGES := \
 
 # x86-64
 ifeq ($(GLUON_TARGET),x86-64)
-GLUON_SITE_PACKAGES += \
-	$(DEBUG_PACKAGES)
-endif
-
-# digineo
-ifeq ($(GLUON_TARGET),ramips-mt7621)
 GLUON_SITE_PACKAGES += \
 	$(DEBUG_PACKAGES)
 endif
