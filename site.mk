@@ -43,5 +43,6 @@ DEBUG_PACKAGES := \
 # x86-64
 ifeq ($(GLUON_TARGET),x86-64)
 GLUON_SITE_PACKAGES += \
-	$(DEBUG_PACKAGES)
+	$(DEBUG_PACKAGES) \
+	haveged
 endif
