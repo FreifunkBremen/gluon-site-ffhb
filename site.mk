@@ -25,6 +25,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-iptables-clamp-mss-to-pmtu \
 	babeldev \
 	haveged \
+	ffhb-breminale \
 	gluon-authorized-keys \
 	respondd-module-wifisettings \
 	reghack
