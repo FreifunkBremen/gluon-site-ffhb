@@ -27,6 +27,7 @@ GLUON_SITE_PACKAGES := \
 	haveged \
 	ffhb-breminale \
 	gluon-authorized-keys \
+	respondd-module-lldp \
 	respondd-module-wifisettings \
 	reghack
 
