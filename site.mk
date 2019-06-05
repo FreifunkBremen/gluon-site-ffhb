@@ -12,10 +12,8 @@ GLUON_SITE_PACKAGES := \
 	gluon-config-mode-contact-info \
 	gluon-web-admin \
 	gluon-web-autoupdater \
-	gluon-web-network \
-	gluon-web-private-wifi \
 	gluon-web-wifi-config \
-	gluon-mesh-vpn-wireguard \
+	gluon-web-network \
 	gluon-client-bridge \
 	gluon-radvd \
 	gluon-setup-mode \
@@ -25,7 +23,11 @@ GLUON_SITE_PACKAGES := \
 	iwinfo \
 	iptables \
 	gluon-iptables-clamp-mss-to-pmtu \
-	babeldev
+	babeldev \
+	haveged \
+	gluon-authorized-keys \
+	respondd-module-wifisettings \
+	reghack
 
 # Allow overriding the these variables from the command line
 GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
