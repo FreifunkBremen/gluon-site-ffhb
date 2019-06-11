@@ -29,6 +29,8 @@ GLUON_SITE_PACKAGES := \
 	gluon-authorized-keys \
 	respondd-module-lldp \
 	respondd-module-wifisettings \
+	wifictld \
+	respondd-module-wifictld \
 	reghack
 
 # Allow overriding the these variables from the command line

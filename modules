@@ -1,4 +1,8 @@
-GLUON_SITE_FEEDS='ffhb ffffmpackages'
+GLUON_SITE_FEEDS='ffhb ffffmpackages wifictld'
+
+PACKAGES_WIFICTLD_REPO=gitlab@dev.sum7.eu:genofire/wifictld.git
+PACKAGES_WIFICTLD_BRANCH=gluon-babel
+PACKAGES_WIFICTLD_COMMIT=fc41de91d022fb8082bc05d22094c25acf9c8411
 
 # Just till it is merged upstream
 PACKAGES_GLUON_REPO=git://github.com/genofire/gluon-packages.git
