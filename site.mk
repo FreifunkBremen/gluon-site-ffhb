@@ -12,8 +12,8 @@ GLUON_SITE_PACKAGES := \
 	gluon-config-mode-contact-info \
 	gluon-web-admin \
 	gluon-web-autoupdater \
-	gluon-web-wifi-config \
 	gluon-web-network \
+	gluon-web-wifi-config \
 	gluon-client-bridge \
 	gluon-radvd \
 	gluon-setup-mode \
