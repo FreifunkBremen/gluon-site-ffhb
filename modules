@@ -10,7 +10,7 @@ PACKAGES_GLUON_BRANCH=genofire-clientcount
 PACKAGES_GLUON_COMMIT=a559097e8c138e7ffa45696446be34f8acf83b85
 
 PACKAGES_FFHB_REPO=git://github.com/FreifunkBremen/ffhb-packages.git
-PACKAGES_FFHB_COMMIT=9efed3f7bf12ef8c54f747e4ab04b964a47de9e8
+PACKAGES_FFHB_COMMIT=757e013359c4211ffa1ab141de0c6ecd6ab185b4
 PACKAGES_FFHB_BRANCH=events
 
 PACKAGES_FFFFMPACKAGES_REPO=git://github.com/freifunk-ffm/packages.git
