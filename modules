@@ -1,10 +1,5 @@
 GLUON_SITE_FEEDS='ffhb ffffmpackages'
 
-# Just till it is merged upstream
-PACKAGES_GLUON_REPO=git://github.com/genofire/gluon-packages.git
-PACKAGES_GLUON_BRANCH=genofire-clientcount
-PACKAGES_GLUON_COMMIT=a559097e8c138e7ffa45696446be34f8acf83b85
-
 PACKAGES_FFHB_REPO=git://github.com/FreifunkBremen/ffhb-packages.git
 PACKAGES_FFHB_COMMIT=e314a51ebbd5e8b6da3ab2744354869b7740913a
 
