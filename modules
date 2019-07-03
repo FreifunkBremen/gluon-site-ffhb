@@ -1,16 +1,11 @@
-GLUON_SITE_FEEDS='ffhb ffffmpackages wifictld'
-
-PACKAGES_WIFICTLD_REPO=gitlab@dev.sum7.eu:genofire/wifictld.git
-PACKAGES_WIFICTLD_BRANCH=gluon-babel
-PACKAGES_WIFICTLD_COMMIT=f7f6dd0ea70d90e692ea79b7de58727812b49400
+GLUON_SITE_FEEDS='ffhb ffffmpackages'
 
 # Just till it is merged upstream
-PACKAGES_GLUON_REPO=git://github.com/genofire/gluon-packages.git
-PACKAGES_GLUON_BRANCH=genofire-clientcount
-PACKAGES_GLUON_COMMIT=a559097e8c138e7ffa45696446be34f8acf83b85
+PACKAGES_GLUON_REPO=git://github.com/freifunk-gluon/packages.git
+PACKAGES_GLUON_COMMIT=aae659d48d29353194501e41c210120471f33a75
 
 PACKAGES_FFHB_REPO=git://github.com/FreifunkBremen/ffhb-packages.git
-PACKAGES_FFHB_COMMIT=757e013359c4211ffa1ab141de0c6ecd6ab185b4
+PACKAGES_FFHB_COMMIT=a2bab9895964354feddfe5d961d5b3d11430e604
 PACKAGES_FFHB_BRANCH=events
 
 PACKAGES_FFFFMPACKAGES_REPO=git://github.com/freifunk-ffm/packages.git
