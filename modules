@@ -1,13 +1,5 @@
-GLUON_SITE_FEEDS='ffhb ffffmpackages'
-
-# Just till it is merged upstream
-PACKAGES_GLUON_REPO=git://github.com/freifunk-gluon/packages.git
-PACKAGES_GLUON_COMMIT=aae659d48d29353194501e41c210120471f33a75
+GLUON_SITE_FEEDS='ffhb'
 
 PACKAGES_FFHB_REPO=git://github.com/FreifunkBremen/ffhb-packages.git
-PACKAGES_FFHB_COMMIT=a2bab9895964354feddfe5d961d5b3d11430e604
+PACKAGES_FFHB_COMMIT=3245f2657691e58bda3fe0f1f6fd38bc8886c860
 PACKAGES_FFHB_BRANCH=events
-
-PACKAGES_FFFFMPACKAGES_REPO=git://github.com/freifunk-ffm/packages.git
-PACKAGES_FFFFMPACKAGES_COMMIT=10ede5aab68eb22c30b0f01fd34f61714ffc0f0b
-PACKAGES_FFFFMPACKAGES_BRANCH=master

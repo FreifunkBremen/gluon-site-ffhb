@@ -1,6 +1,5 @@
 GLUON_SITE_PACKAGES := \
-	gluon-mesh-babel \
-	gluon-l3roamd \
+	gluon-mesh-batman-adv-15 \
 	gluon-respondd \
 	respondd-module-airtime \
 	gluon-autoupdater \
@@ -10,11 +9,15 @@ GLUON_SITE_PACKAGES := \
 	gluon-config-mode-mesh-vpn \
 	gluon-config-mode-geo-location \
 	gluon-config-mode-contact-info \
+	gluon-ebtables-filter-multicast \
+	gluon-ebtables-filter-ra-dhcp \
+	gluon-ebtables-source-filter \
 	gluon-web-admin \
 	gluon-web-autoupdater \
+	gluon-web-mesh-vpn-fastd \
 	gluon-web-network \
 	gluon-web-wifi-config \
-	gluon-client-bridge \
+	gluon-radv-filterd \
 	gluon-radvd \
 	gluon-setup-mode \
 	gluon-speedtest \
@@ -22,18 +25,18 @@ GLUON_SITE_PACKAGES := \
 	iputils-ping6 \
 	iwinfo \
 	iptables \
-	gluon-iptables-clamp-mss-to-pmtu \
-	babeldev \
+	firewall \
 	haveged \
-	ffhb-breminale \
 	gluon-authorized-keys \
 	respondd-module-wifisettings \
+	ffhb-breminale \
 	reghack
 
 # Allow overriding the these variables from the command line
 GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
 export GLUON_BRANCH ?= babel
 GLUON_PRIORITY ?= 0
+GLUON_DEPRECATED ?= 0
 GLUON_LANGS ?= en de
 GLUON_REGION ?= eu
 GLUON_WLAN_MESH ?= 11s
