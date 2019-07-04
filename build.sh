@@ -27,7 +27,7 @@ for target in $GLUON_TARGETS; do
     echo "Building target ${target}"
     schedtool -B -e \
         make --jobs=$(grep -c '^processor' /proc/cpuinfo) GLUON_TARGET="$target" || \
-        make -j1 --output-sync=recurse GLUON_TARGET="$target" V=s
+        make -j1 --output-sync=recurse GLUON_TARGET="$target" V=sc
 done
 
 # generate manifests
