@@ -1,5 +1,4 @@
 GLUON_SITE_PACKAGES := \
-	gluon-mesh-batman-adv-15 \
 	gluon-respondd \
 	respondd-module-airtime \
 	gluon-autoupdater \
@@ -9,16 +8,12 @@ GLUON_SITE_PACKAGES := \
 	gluon-config-mode-mesh-vpn \
 	gluon-config-mode-geo-location \
 	gluon-config-mode-contact-info \
-	gluon-ebtables-filter-multicast \
-	gluon-ebtables-filter-ra-dhcp \
-	gluon-ebtables-source-filter \
 	gluon-web-admin \
 	gluon-web-autoupdater \
 	gluon-web-mesh-vpn-fastd \
 	gluon-web-network \
 	gluon-web-wifi-config \
-	gluon-radv-filterd \
-	gluon-radvd \
+	gluon-client-bridge \
 	gluon-setup-mode \
 	gluon-speedtest \
 	gluon-status-page \
