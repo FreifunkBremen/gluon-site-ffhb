@@ -23,6 +23,7 @@ GLUON_SITE_PACKAGES := \
 	firewall \
 	haveged \
 	gluon-authorized-keys \
+	respondd-wifi \
 	respondd-module-wifisettings \
 	respondd-module-interface-address \
 	ffhb-breminale \
