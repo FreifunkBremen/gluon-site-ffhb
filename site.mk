@@ -31,8 +31,9 @@ GLUON_SITE_PACKAGES := \
 
 # Allow overriding the these variables from the command line
 GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
-export GLUON_BRANCH ?= stable
+GLUON_BRANCH ?= stable
 GLUON_PRIORITY ?= 0
+GLUON_DEPRECATED ?= upgrade
 GLUON_LANGS ?= en de
 GLUON_REGION ?= eu
 GLUON_WLAN_MESH ?= ibss
