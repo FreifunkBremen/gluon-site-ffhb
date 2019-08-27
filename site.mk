@@ -25,7 +25,10 @@ GLUON_SITE_PACKAGES := \
 	iwinfo \
 	iptables \
 	gluon-iptables-clamp-mss-to-pmtu \
-	babeldev
+	babeldev \
+	haveged \
+	gluon-xlat464-clat  \
+	gluon-ddhcpd
 
 # Allow overriding the these variables from the command line
 GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
@@ -34,7 +37,7 @@ GLUON_PRIORITY ?= 0
 GLUON_LANGS ?= en de
 GLUON_REGION ?= eu
 GLUON_WLAN_MESH ?= 11s
-
+GLUON_DEPRECATED ?= 0
 
 # Debug packages
 DEBUG_PACKAGES := \
@@ -43,6 +46,5 @@ DEBUG_PACKAGES := \
 # x86-64
 ifeq ($(GLUON_TARGET),x86-64)
 GLUON_SITE_PACKAGES += \
-	$(DEBUG_PACKAGES) \
-	haveged
+	$(DEBUG_PACKAGES)
 endif

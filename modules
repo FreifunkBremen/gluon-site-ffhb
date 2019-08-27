@@ -1,11 +1,16 @@
-GLUON_SITE_FEEDS='ffhb ffffmpackages'
+GLUON_SITE_FEEDS='ffhb christfddhcp ffffmpackages'
 
-PACKAGES_GLUON_REPO=git://github.com/genofire/gluon-packages.git
+PACKAGES_GLUON_REPO=git://github.com/freifunk-gluon/packages.git
 PACKAGES_GLUON_BRANCH=master
-PACKAGES_GLUON_COMMIT=227cf16d90a72af3b0f3c69f16ef79e49bbcf12f
+PACKAGES_GLUON_COMMIT=89260206971f1716c256a75324651dca52d0211a
 
 PACKAGES_FFHB_REPO=git://github.com/FreifunkBremen/ffhb-packages.git
 PACKAGES_FFHB_COMMIT=e314a51ebbd5e8b6da3ab2744354869b7740913a
+
+
+PACKAGES_CHRISTFDDHCP_REPO=https://github.com/christf/gluon-sargon.git
+PACKAGES_CHRISTFDDHCP_COMMIT=d81a81af9f593dfd6aa5f7afbdb076c7c144c901
+PACKAGES_CHRISTFDDHCP_BRANCH=bump
 
 PACKAGES_FFFFMPACKAGES_REPO=git://github.com/freifunk-ffm/packages.git
 PACKAGES_FFFFMPACKAGES_COMMIT=b0cd16ee80fa8c093b1c6a5b442f7e81b9d85e42
