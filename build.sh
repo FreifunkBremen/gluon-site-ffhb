@@ -3,6 +3,7 @@
 # environmental and build settings
 KEYFILE="${KEYFILE:-"$HOME/.ecdsakey"}"
 GLUON_PRIORITY="${GLUON_PRIORITY:-7}"
+JOBS=${JOBS:-"$(grep -c '^processor' /proc/cpuinfo)"} 
 
 # start of script
 set -eu
@@ -26,8 +27,8 @@ fi
 for target in $GLUON_TARGETS; do
     echo "Building target ${target}"
     schedtool -B -e \
-        make --jobs=$(grep -c '^processor' /proc/cpuinfo) GLUON_TARGET="$target" || \
-        make -j1 --output-sync=recurse GLUON_TARGET="$target" V=s
+        make --jobs=$JOBS --output-sync=recurse \
+            GLUON_TARGET="$target" V=s
 done
 
 # generate manifests
