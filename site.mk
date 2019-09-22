@@ -1,28 +1,23 @@
+GLUON_FEATURES := \
+	autoupdater \
+	ebtables-filter-multicast \
+	ebtables-filter-ra-dhcp \
+	ebtables-limit-arp \
+	mesh-batman-adv-14 \
+	mesh-vpn-fastd \
+	respondd \
+	status-page \
+	web-advanced \
+	web-wizard
+
 GLUON_SITE_PACKAGES := \
-	gluon-mesh-batman-adv-14 \
-	gluon-respondd \
 	respondd-module-airtime \
-	gluon-autoupdater \
 	gluon-config-mode-core \
-	gluon-config-mode-hostname \
-	gluon-config-mode-autoupdater \
-	gluon-config-mode-mesh-vpn \
-	gluon-config-mode-geo-location \
-	gluon-config-mode-contact-info \
-	gluon-ebtables-filter-multicast \
-	gluon-ebtables-filter-ra-dhcp \
-	gluon-web-admin \
-	gluon-web-autoupdater \
-	gluon-web-mesh-vpn-fastd \
-	gluon-web-network \
-	gluon-web-private-wifi \
-	gluon-web-wifi-config \
-	gluon-mesh-vpn-fastd \
+        gluon-web-mesh-vpn-fastd \
+        gluon-web-private-wifi \
 	gluon-radv-filterd \
-	gluon-radvd \
 	gluon-setup-mode \
 	gluon-speedtest \
-	gluon-status-page \
 	iputils-ping6 \
 	iwinfo \
 	iptables \
