@@ -3,12 +3,13 @@ GLUON_FEATURES := \
 	ebtables-filter-multicast \
 	ebtables-filter-ra-dhcp \
 	ebtables-limit-arp \
-	mesh-batman-adv-14 \
+	mesh-batman-adv-15 \
 	mesh-vpn-fastd \
 	respondd \
 	status-page \
 	web-advanced \
-	web-wizard
+	web-wizard \
+	mesh-batman-adv-14
 
 GLUON_SITE_PACKAGES := \
 	respondd-module-airtime \
@@ -22,7 +23,8 @@ GLUON_SITE_PACKAGES := \
 	iwinfo \
 	iptables \
 	firewall \
-	haveged
+	haveged \
+	gluon-scheduled-domain-switch
 
 # Allow overriding the these variables from the command line
 GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
@@ -32,3 +34,4 @@ GLUON_DEPRECATED ?= upgrade
 GLUON_LANGS ?= en de
 GLUON_REGION ?= eu
 GLUON_WLAN_MESH ?= ibss
+GLUON_MULTIDOMAIN=1
