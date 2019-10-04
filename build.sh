@@ -36,11 +36,15 @@ make manifest
 
 if [ -z "${GLUON_BRANCH:-}" ]; then
     make manifest GLUON_BRANCH=babel GLUON_PRIORITY=0
+    make manifest GLUON_BRANCH=babel_testing GLUON_PRIORITY=0
+    # why
     ln -sf babel.manifest "${GLUON_DIR}/output/images/sysupgrade/manifest"
 fi
 
 # sign testing/nightly manifest if key is present
 if [ -n "$KEYFILE" -a -r "$KEYFILE" ]; then
     "${GLUON_DIR}/contrib/sign.sh" "$KEYFILE" \
-        "${GLUON_DIR}/output/images/sysupgrade/manifest"
+        "${GLUON_DIR}/output/images/sysupgrade/babel.manifest"
+    "${GLUON_DIR}/contrib/sign.sh" "$KEYFILE" \
+        "${GLUON_DIR}/output/images/sysupgrade/babel_testing.manifest"
 fi
