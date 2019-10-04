@@ -1,43 +1,34 @@
+GLUON_FEATURES := \
+        autoupdater \
+        mesh-babel \
+        mesh-vpn-wireguard \
+	respondd \
+	status-page \
+        web-advanced \
+        web-wizard
+
 GLUON_SITE_PACKAGES := \
-	gluon-mesh-babel \
 	gluon-l3roamd \
-	gluon-respondd \
 	respondd-module-airtime \
-	gluon-autoupdater \
 	gluon-config-mode-core \
-	gluon-config-mode-hostname \
-	gluon-config-mode-autoupdater \
-	gluon-config-mode-mesh-vpn \
-	gluon-config-mode-geo-location \
-	gluon-config-mode-contact-info \
-	gluon-web-admin \
-	gluon-web-autoupdater \
-	gluon-web-network \
-	gluon-web-private-wifi \
-	gluon-web-wifi-config \
-	gluon-mesh-vpn-wireguard \
 	gluon-client-bridge \
-	gluon-radvd \
 	gluon-setup-mode \
 	gluon-speedtest \
-	gluon-status-page \
 	iputils-ping6 \
 	iwinfo \
 	iptables \
 	gluon-iptables-clamp-mss-to-pmtu \
 	babeldev \
-	haveged \
-	gluon-xlat464-clat  \
-	gluon-ddhcpd
+	haveged
 
 # Allow overriding the these variables from the command line
 GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
 export GLUON_BRANCH ?= babel
 GLUON_PRIORITY ?= 0
+GLUON_DEPRECATED ?= upgrade
 GLUON_LANGS ?= en de
 GLUON_REGION ?= eu
 GLUON_WLAN_MESH ?= 11s
-GLUON_DEPRECATED ?= 0
 
 # Debug packages
 DEBUG_PACKAGES := \
