@@ -4,7 +4,7 @@ GLUON_SITE_FEEDS='ffhb christfddhcp ffffmpackages'
 # PACKAGES_GLUON_BRANCH=master
 # PACKAGES_GLUON_COMMIT=ed8f36c08f439a69f1022fd8a7dc592d1c30b783
 
-PACKAGES_FFHB_REPO=git://github.com/FreifunkBremen/ffhb-packages.git
+PACKAGES_FFHB_REPO=https://code.bremen.freifunk.net/ffhb/firmware/ffhb-packages.git
 PACKAGES_FFHB_COMMIT=e314a51ebbd5e8b6da3ab2744354869b7740913a
 
 PACKAGES_CHRISTFDDHCP_REPO=https://github.com/christf/gluon-sargon.git
@@ -12,6 +12,6 @@ PACKAGES_CHRISTFDDHCP_COMMIT=d81a81af9f593dfd6aa5f7afbdb076c7c144c901
 PACKAGES_CHRISTFDDHCP_BRANCH=bump
 
 PACKAGES_FFFFMPACKAGES_REPO=git://github.com/freifunk-ffm/packages.git
-PACKAGES_FFFFMPACKAGES_COMMIT=b0cd16ee80fa8c093b1c6a5b442f7e81b9d85e42
+PACKAGES_FFFFMPACKAGES_COMMIT=93a30a537622303650d1c8ad868b3d6f3a29ef63
 
 
