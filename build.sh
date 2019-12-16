@@ -10,10 +10,11 @@ set -eu
 
 # determine absolute path of site repository
 if which realpath > /dev/null; then
-    export GLUON_SITEDIR="$(dirname "$(realpath "$0")")"
+    GLUON_SITEDIR="$(dirname "$(realpath "$0")")"
 else
-    export GLUON_SITEDIR="$(dirname "$(readlink -f "$0")")"
+    GLUON_SITEDIR="$(dirname "$(readlink -f "$0")")"
 fi
+export GLUON_SITEDIR
 GLUON_DIR="${GLUON_SITEDIR}/gluon/"
 
 # start building
@@ -27,7 +28,7 @@ fi
 for target in $GLUON_TARGETS; do
     echo "Building target ${target}"
     schedtool -B -e \
-        make --jobs=$JOBS --output-sync=recurse \
+        make --jobs="$JOBS" --output-sync=recurse \
             GLUON_TARGET="$target" V=s
 done
 
@@ -44,7 +45,7 @@ if [ -z "${GLUON_BRANCH:-}" ]; then
 fi
 
 # sign testing/nightly manifest if key is present
-if [ -n "$KEYFILE" -a -r "$KEYFILE" ]; then
+if [ -n "$KEYFILE" ] && [ -r "$KEYFILE" ]; then
     "${GLUON_DIR}/contrib/sign.sh" "$KEYFILE" \
         "${GLUON_DIR}/output/images/sysupgrade/testing.manifest"
 fi
