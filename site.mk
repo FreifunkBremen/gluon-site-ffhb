@@ -35,3 +35,13 @@ GLUON_LANGS ?= en de
 GLUON_REGION ?= eu
 GLUON_WLAN_MESH ?= ibss
 GLUON_MULTIDOMAIN=1
+
+
+EXCLUDE_NO_WIFI:= -respondd-module-airtime
+
+# ramips-mt7621
+ifeq ($(GLUON_TARGET),ramips-mt7621)
+	GLUON_ubnt-erx_SITE_PACKAGES +=  $(EXCLUDE_NO_WIFI)
+	GLUON_ubnt-erx-sfp_SITE_PACKAGES +=  $(EXCLUDE_NO_WIFI)
+endif
+
