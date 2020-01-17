@@ -14,6 +14,7 @@ GLUON_FEATURES := \
 GLUON_SITE_PACKAGES := \
 	respondd-module-airtime \
 	gluon-config-mode-core \
+	gluon-config-mode-domain-select \
         gluon-web-mesh-vpn-fastd \
         gluon-web-private-wifi \
 	gluon-radv-filterd \
