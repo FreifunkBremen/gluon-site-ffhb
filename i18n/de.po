@@ -30,3 +30,11 @@ msgstr ""
 "<p>"
 "Viel Spaß mit deinem Knoten und der Erkundung von Freifunk!"
 "</p>"
+
+msgid "gluon-config-mode:domain"
+msgstr "Domain"
+
+msgid "gluon-config-mode:domain-select"
+msgstr ""
+"Hier hast du die Möglichkeit die Domain, in der sich dein Knoten befindet, "
+"auszuwählen. Dies ist notwendig, um neue Technologien einzuführen."
