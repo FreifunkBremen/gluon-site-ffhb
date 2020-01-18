@@ -25,3 +25,11 @@ msgstr ""
 "You can find lots of information on the Freifunk Bremen community on "
 "<a href=\"http://bremen.freifunk.net/\">our website</a>.</p>"
 "<p>Have fun with your node and the Freifunk experience!</p>"
+
+msgid "gluon-config-mode:domain"
+msgstr "Domain"
+
+msgid "gluon-config-mode:domain-select"
+msgstr ""
+"Here you have the possibility of selecting the domain in which your node is "
+"placed. This is necessary to move the nodes to a new technologies."
