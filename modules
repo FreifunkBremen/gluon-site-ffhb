@@ -1,4 +1,8 @@
-GLUON_SITE_FEEDS='ffhb'
+GLUON_SITE_FEEDS='ffhb ssidchanger'
 
 PACKAGES_FFHB_REPO=git://github.com/FreifunkBremen/ffhb-packages.git
 PACKAGES_FFHB_COMMIT=e314a51ebbd5e8b6da3ab2744354869b7740913a
+
+PACKAGES_SSIDCHANGER_REPO=https://github.com/freifunk-nord/gluon-ssid-changer.git
+PACKAGES_SSIDCHANGER_COMMIT=f266b9e6328f97354f3b8777d1111ad044be9be5 # <-- set the newest commit ID here
+PACKAGES_SSIDCHANGER_BRANCH=2018.1.x
