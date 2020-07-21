@@ -12,6 +12,7 @@ GLUON_FEATURES := \
 	mesh-batman-adv-14
 
 GLUON_SITE_PACKAGES := \
+	gluon-ssid-changer \
 	respondd-module-airtime \
 	gluon-config-mode-core \
 	gluon-config-mode-domain-select \
