@@ -21,9 +21,7 @@ GLUON_DIR="${GLUON_SITEDIR}/gluon/"
 cd "${GLUON_DIR}"
 make update V=s
 
-if [ -z "${GLUON_TARGETS:-}" ]; then
-    GLUON_TARGETS="$(make list-targets)"
-fi
+GLUON_TARGETS=${GLUON_TARGETS:-"$(make list-targets)"}
 
 for target in $GLUON_TARGETS; do
     echo "Building target ${target}"
