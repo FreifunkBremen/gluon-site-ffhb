@@ -1,18 +1,23 @@
-GLUON_SITE_FEEDS='ffhb christfddhcp ffffmpackages'
+GLUON_SITE_FEEDS='ffhb'
+#GLUON_SITE_FEEDS='ffhb sargon ffffmpackages'
 
 # Overwrite upstream
 PACKAGES_GLUON_REPO=git://github.com/freifunk-gluon/packages.git
 PACKAGES_GLUON_BRANCH=master
-PACKAGES_GLUON_COMMIT=12e41d0ff07ec54bbd67a31ab50d12ca04f2238c
+PACKAGES_GLUON_COMMIT=95c805c863cd0818f0e5196d3b7bde6860fd2861
 
 PACKAGES_FFHB_REPO=https://github.com/FreifunkBremen/ffhb-packages.git
 PACKAGES_FFHB_COMMIT=e314a51ebbd5e8b6da3ab2744354869b7740913a
 
-PACKAGES_CHRISTFDDHCP_REPO=https://github.com/christf/gluon-sargon.git
-PACKAGES_CHRISTFDDHCP_COMMIT=d81a81af9f593dfd6aa5f7afbdb076c7c144c901
-PACKAGES_CHRISTFDDHCP_BRANCH=bump
+#PACKAGES_SARGON_REPO=https://github.com/sargon/gluon-sargon.git
+#PACKAGES_SARGON_COMMIT=7c301df0a5985f44639bbb976a23cb48edecc2fb
+#PACKAGES_SARGON_BRANCH=master
 
-PACKAGES_FFFFMPACKAGES_REPO=git://github.com/freifunk-ffm/packages.git
-PACKAGES_FFFFMPACKAGES_COMMIT=55bd26ca2217e77ae2db6c80a742a1f4ff56b133
+#PACKAGES_CHRISTFDDHCP_REPO=https://github.com/christf/gluon-sargon.git
+#PACKAGES_CHRISTFDDHCP_COMMIT=d81a81af9f593dfd6aa5f7afbdb076c7c144c901
+#PACKAGES_CHRISTFDDHCP_BRANCH=bump
+
+#PACKAGES_FFFFMPACKAGES_REPO=git://github.com/freifunk-ffm/packages.git
+#PACKAGES_FFFFMPACKAGES_COMMIT=0b255c85b44594a4e870a593d14dbaa1683171a6
 
 

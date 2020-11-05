@@ -18,7 +18,7 @@ GLUON_SITE_PACKAGES := \
 	iwinfo \
 	iptables \
 	gluon-iptables-clamp-mss-to-pmtu \
-	babeldev \
+	babeld \
 	haveged
 
 # Allow overriding the these variables from the command line
