@@ -1,0 +1,33 @@
+stages:
+  - build
+
+variables:
+    GIT_CLEAN_FLAGS: "none"
+    GIT_STRATEGY: "fetch"
+    GIT_SUBMODULE_STRATEGY: "recursive"
+    GLUON_SITEDIR: "$CI_PROJECT_DIR"
+    GLUON_DIR: "$CI_PROJECT_DIR/gluon/"
+
+before_script:
+  - export GLUON_RELEASE="$(git describe --tags --dirty=+ | sed 's/^v//g')~$(git rev-parse --abbrev-ref HEAD)${CI_PIPELINE_ID}"
+
+.job_build:
+  tags:
+  - gluon
+  stage: build
+  timeout: 4h 30m
+  script:
+  - cd "gluon"
+  - env
+  - make update V=s
+  - make --jobs=$(grep -c '^processor' /proc/cpuinfo) --output-sync=recurse
+
+
+###
+# Build per target
+###
+
+'build: ar71xx-generic':
+  extends: .job_build
+  variables:
+    GLUON_TARGET: "ar71xx-generic"
