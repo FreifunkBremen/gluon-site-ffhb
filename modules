@@ -1,6 +1,6 @@
 GLUON_SITE_FEEDS='ffhb ssidchanger'
 
-PACKAGES_FFHB_REPO=git://github.com/FreifunkBremen/ffhb-packages.git
+PACKAGES_FFHB_REPO=https://github.com/FreifunkBremen/ffhb-packages.git
 PACKAGES_FFHB_COMMIT=e314a51ebbd5e8b6da3ab2744354869b7740913a
 
 PACKAGES_SSIDCHANGER_REPO=https://github.com/freifunk-nord/gluon-ssid-changer.git
