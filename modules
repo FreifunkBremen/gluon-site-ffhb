@@ -1,5 +1,5 @@
 GLUON_SITE_FEEDS='ffhb'
 
-PACKAGES_FFHB_REPO=git://github.com/FreifunkBremen/ffhb-packages.git
+PACKAGES_FFHB_REPO=https://code.bremen.freifunk.net/ffhb/firmware/ffhb-packages.git
 PACKAGES_FFHB_COMMIT=0e2480415815655232cffe53b5329c73f211088c
 PACKAGES_FFHB_BRANCH=events
