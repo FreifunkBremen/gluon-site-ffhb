@@ -21,6 +21,10 @@ before_script:
   - env
   - make update V=s
   - make --jobs=$(grep -c '^processor' /proc/cpuinfo) --output-sync=recurse  || make --jobs=1  --output-sync=recurse V=sc
+  artifacts:
+    paths:
+      - "gluon/output/images/sysupgrade"
+    expire_in: 1 month
 
 
 ###
