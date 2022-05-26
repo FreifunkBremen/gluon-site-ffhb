@@ -17,9 +17,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-setup-mode \
 	gluon-speedtest \
 	gluon-status-page \
-	iputils-ping6 \
 	iwinfo \
-	iptables \
 	firewall \
 	haveged \
 	gluon-authorized-keys \
