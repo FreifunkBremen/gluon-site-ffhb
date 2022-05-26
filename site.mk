@@ -1,16 +1,11 @@
 GLUON_SITE_PACKAGES := \
 	gluon-respondd \
 	respondd-module-airtime \
-	gluon-autoupdater \
 	gluon-config-mode-core \
 	gluon-config-mode-hostname \
-	gluon-config-mode-autoupdater \
-	gluon-config-mode-mesh-vpn \
 	gluon-config-mode-geo-location \
 	gluon-config-mode-contact-info \
 	gluon-web-admin \
-	gluon-web-autoupdater \
-	gluon-web-mesh-vpn-fastd \
 	gluon-web-network \
 	gluon-web-wifi-config \
 	gluon-client-bridge \
