@@ -20,7 +20,7 @@ before_script:
   - cd "gluon"
   - env
   - make update V=s
-  - make --jobs=$(grep -c '^processor' /proc/cpuinfo) --output-sync=recurse
+  - make --jobs=$(grep -c '^processor' /proc/cpuinfo) --output-sync=recurse  || make --jobs=1  --output-sync=recurse V=sc
 
 
 ###
