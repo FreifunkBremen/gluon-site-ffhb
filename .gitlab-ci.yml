@@ -27,7 +27,7 @@ before_script:
 # Build per target
 ###
 
-'build: ar71xx-generic':
+'build: ath79-generic':
   extends: .job_build
   variables:
-    GLUON_TARGET: "ar71xx-generic"
+    GLUON_TARGET: "ath79-generic"
