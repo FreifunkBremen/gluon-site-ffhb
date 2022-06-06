@@ -1,17 +1,16 @@
+GLUON_FEATURES := \
+       respondd \
+       status-page
+
 GLUON_SITE_PACKAGES := \
-	gluon-respondd \
+	gluon-ssid-changer \
 	respondd-module-airtime \
 	gluon-config-mode-core \
 	gluon-config-mode-hostname \
-	gluon-config-mode-geo-location \
 	gluon-config-mode-contact-info \
-	gluon-web-admin \
-	gluon-web-network \
-	gluon-web-wifi-config \
+	gluon-config-mode-geo-location \
 	gluon-client-bridge \
-	gluon-setup-mode \
 	gluon-speedtest \
-	gluon-status-page \
 	iwinfo \
 	firewall \
 	haveged \
@@ -19,12 +18,11 @@ GLUON_SITE_PACKAGES := \
 	respondd-wifi \
 	respondd-module-wifisettings \
 	respondd-module-interface-address \
-	ffhb-breminale \
 	reghack
 
 # Allow overriding the these variables from the command line
 GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
-GLUON_AUTOUPDATE_BRANCH ?= stabel
+GLUON_AUTOUPDATE_BRANCH ?= stable
 GLUON_AUTOUPDATER_ENABLED ?= 1
 GLUON_PRIORITY ?= 0
 GLUON_DEPRECATED ?= 0
