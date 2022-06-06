@@ -18,8 +18,8 @@ GLUON_SITE_PACKAGES := \
 	gluon-config-mode-domain-select \
 	gluon-config-mode-geo-location \
 	gluon-config-mode-geo-location-osm \
-        gluon-web-mesh-vpn-fastd \
-        gluon-web-private-wifi \
+	gluon-web-mesh-vpn-fastd \
+	gluon-web-private-wifi \
 	gluon-radv-filterd \
 	gluon-setup-mode \
 	gluon-speedtest \
