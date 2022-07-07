@@ -1,6 +1,7 @@
 GLUON_FEATURES := \
        respondd \
        status-page
+#TODO ebtables... ?
 
 GLUON_SITE_PACKAGES := \
 	gluon-ssid-changer \
@@ -14,11 +15,19 @@ GLUON_SITE_PACKAGES := \
 	iwinfo \
 	firewall \
 	haveged \
-	gluon-authorized-keys \
+	gluon-authorized-keys
+#TODO iptables ?
+#TODO iputils-ping6 ?
+
+# own packages
+# just for easy find
+GLUON_SITE_PACKAGES += \
 	respondd-wifi \
 	respondd-module-wifisettings \
 	respondd-module-interface-address \
+	respondd-module-lldp \
 	reghack
+#TODO ffhb-breminale ...
 
 # Allow overriding the these variables from the command line
 GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
@@ -38,6 +47,5 @@ DEBUG_PACKAGES := \
 # x86-64
 ifeq ($(GLUON_TARGET),x86-64)
 GLUON_SITE_PACKAGES += \
-	$(DEBUG_PACKAGES) \
-	haveged
+	$(DEBUG_PACKAGES)
 endif
