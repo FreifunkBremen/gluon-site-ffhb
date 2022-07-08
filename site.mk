@@ -22,12 +22,13 @@ GLUON_SITE_PACKAGES := \
 # own packages
 # just for easy find
 GLUON_SITE_PACKAGES += \
+	ffhb-breminale \
 	respondd-wifi \
 	respondd-module-wifisettings \
 	respondd-module-interface-address \
 	respondd-module-lldp \
-	reghack
-#TODO ffhb-breminale ...
+	reghack \
+	tcpdump
 
 # Allow overriding the these variables from the command line
 GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
