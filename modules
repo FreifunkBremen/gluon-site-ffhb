@@ -1,7 +1,7 @@
 GLUON_SITE_FEEDS='ffhb ssidchanger'
 
 PACKAGES_FFHB_REPO=https://code.bremen.freifunk.net/ffhb/firmware/ffhb-packages.git
-PACKAGES_FFHB_COMMIT=a0c8fd79622850cbf68b4a095efc049257e78740
+PACKAGES_FFHB_COMMIT=d37558ec59074d00189903db04c7d59b8ce02527
 PACKAGES_FFHB_BRANCH=events
 
 
