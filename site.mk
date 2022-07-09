@@ -25,9 +25,10 @@ GLUON_SITE_PACKAGES += \
 	respondd-wifi \
 	respondd-module-wifisettings \
 	respondd-module-interface-address \
-	respondd-module-lldp \
 	reghack \
 	tcpdump
+#TODO disabled, till fixed:
+#       respondd-module-lldp \
 
 # Allow overriding the these variables from the command line
 GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
