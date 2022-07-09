@@ -9,7 +9,7 @@ variables:
     GLUON_DIR: "$CI_PROJECT_DIR/gluon/"
 
 before_script:
-  - export GLUON_RELEASE="$(git describe --tags --dirty=+ | sed 's/^v//g')~$(git rev-parse --abbrev-ref HEAD)${CI_PIPELINE_ID}"
+  - export GLUON_RELEASE="$(git describe --tags --abbrev=0)-build${CI_PIPELINE_ID}"
 
 .job_build:
   tags:
