@@ -4,7 +4,6 @@ GLUON_FEATURES := \
 #TODO ebtables... ?
 
 GLUON_SITE_PACKAGES := \
-	gluon-ssid-changer \
 	respondd-module-airtime \
 	gluon-config-mode-core \
 	gluon-config-mode-hostname \
