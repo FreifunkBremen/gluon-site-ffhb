@@ -33,8 +33,8 @@ done
 # generate manifests
 make manifest
 
-if [ -z "${GLUON_BRANCH:-}" ]; then
-    make manifest GLUON_BRANCH=testing GLUON_PRIORITY=0
+if [ -z "${GLUON_AUTOUPDATER_BRANCH:-}" ]; then
+    make manifest GLUON_AUTOUPDATER_BRANCH=testing GLUON_PRIORITY=0
     # add BRANCH=nightly line below BRANCH=testing line
     sed -i -e "/^BRANCH=testing/ a BRANCH=nightly" \
         "${GLUON_DIR}/output/images/sysupgrade/testing.manifest"
