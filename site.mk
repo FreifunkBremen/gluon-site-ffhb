@@ -13,7 +13,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-speedtest \
 	iwinfo \
 	firewall \
-	haveged \
+	urngd \
 	gluon-authorized-keys
 #TODO iptables ?
 #TODO iputils-ping6 ?
@@ -32,13 +32,12 @@ GLUON_SITE_PACKAGES += \
 
 # Allow overriding the these variables from the command line
 GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
-GLUON_AUTOUPDATE_BRANCH ?= stable
+GLUON_AUTOUPDATER_BRANCH ?= stable
 GLUON_AUTOUPDATER_ENABLED ?= 1
 GLUON_PRIORITY ?= 0
 GLUON_DEPRECATED ?= 0
 GLUON_LANGS ?= en de
 GLUON_REGION ?= eu
-GLUON_WLAN_MESH ?= 11s
 
 
 # Debug packages
