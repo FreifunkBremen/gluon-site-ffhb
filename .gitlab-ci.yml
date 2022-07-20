@@ -1,0 +1,86 @@
+stages:
+  - lint
+  - build
+  - release
+
+variables:
+    GIT_CLEAN_FLAGS: "none"
+    GIT_STRATEGY: "fetch"
+    GIT_SUBMODULE_STRATEGY: "recursive"
+    GLUON_SITEDIR: "$CI_PROJECT_DIR"
+    GLUON_DIR: "$CI_PROJECT_DIR/gluon/"
+
+before_script:
+  - export GLUON_RELEASE="$(git describe --tags --abbrev=0 | sed 's/^v//g')-build${CI_PIPELINE_ID}"
+
+
+'lint: TARGETS':
+  tags:
+    - gluon
+  stage: lint
+  script: 
+    - ./.ci/lint-targets.py
+
+"build":
+  tags:
+  - gluon
+  stage: build
+  timeout: 4h 30m
+  script:
+  - cd "gluon"
+  - env
+  # fetch newest gluon version if env is set
+  - "[ -z \"$FFHB_GLUON_PULL\" ] && git checkout origin/master && git pull --rebase"
+  # start build
+  - make update V=s
+  - make --jobs=$(grep -c '^processor' /proc/cpuinfo) --output-sync=recurse  || make --jobs=1  --output-sync=recurse V=sc
+  artifacts:
+    paths:
+      - "gluon/output/images/sysupgrade"
+    expire_in: "1 month"
+  parallel:
+    matrix:
+      - GLUON_TARGET:
+        - "ath79-generic"
+        - "ath79-nand"
+        - "ath79-mikrotik"
+        - "bcm27xx-bcm2708"
+        - "bcm27xx-bcm2709"
+        - "bcm27xx-bcm2710" # on BROKEN
+        - "ipq40xx-generic"
+        - "ipq40xx-mikrotik"
+        - "ipq806x-generic"
+        - "lantiq-xrx200"
+        - "lantiq-xway"
+        - "mediatek-mt7622"
+        - "mpc85xx-p1010"
+        - "mpc85xx-p1020"
+        - "mvebu-cortexa9" # on BROKEN
+        - "ramips-mt7620"
+        - "ramips-mt7621"
+        - "ramips-mt76x8"
+        - "rockchip-armv8"
+        - "sunxi-cortexa7"
+        - "x86-generic"
+        - "x86-geode"
+        - "x86-legacy"
+        - "x86-64"
+
+'release: generate manifest':
+  tags:
+    - gluon
+  stage: release
+  script:
+    - cd "gluon"
+    - '[[ "$CI_BUILD_REF_NAME" != "master" ]] && export GLUON_AUTOUPDATER_BRANCH="nightly"'
+    - make update V=s
+    - ls output/images/sysupgrade
+    - make manifest
+    - ls output/images/sysupgrade
+  artifacts:
+    paths:
+      - "gluon/output/images/sysupgrade/*manifest"
+    expire_in: "1 month"
+  # not use dependencies will download from every job
+  # empty array not download artifacts
+  # dependencies: []
