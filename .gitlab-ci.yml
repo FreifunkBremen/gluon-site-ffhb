@@ -1,5 +1,7 @@
 stages:
+  - lint
   - build
+  - release
 
 variables:
     GIT_CLEAN_FLAGS: "none"
@@ -9,9 +11,17 @@ variables:
     GLUON_DIR: "$CI_PROJECT_DIR/gluon/"
 
 before_script:
-  - export GLUON_RELEASE="$(git describe --tags --abbrev=0)-build${CI_PIPELINE_ID}"
+  - export GLUON_RELEASE="$(git describe --tags --abbrev=0 | sed 's/^v//g')-build${CI_PIPELINE_ID}"
 
-.job_build:
+
+'lint: TARGETS':
+  tags:
+    - gluon
+  stage: lint
+  script: 
+    - ./.ci/lint-targets.py
+
+"build":
   tags:
   - gluon
   stage: build
@@ -19,19 +29,41 @@ before_script:
   script:
   - cd "gluon"
   - env
+  # fetch newest gluon version if env is set
+  - "[ -z \"$FFHB_GLUON_PULL\" ] && git checkout origin/master && git pull --rebase"
+  # start build
   - make update V=s
   - make --jobs=$(grep -c '^processor' /proc/cpuinfo) --output-sync=recurse  || make --jobs=1  --output-sync=recurse V=sc
   artifacts:
     paths:
       - "gluon/output/images/sysupgrade"
-    expire_in: 1 month
+    expire_in: "1 month"
+  cache:
+    # cache across all branches based on target
+    key: "$GLUON_TARGET"
+    paths:
+      - "gluon/openwrt"
+  parallel:
+    matrix:
+      - GLUON_TARGET:
+        - "ath79-generic"
+        - "ramips-mt7621"
 
-
-###
-# Build per target
-###
-
-'build: ath79-generic':
-  extends: .job_build
-  variables:
-    GLUON_TARGET: "ath79-generic"
+'release: generate manifest':
+  tags:
+    - gluon
+  stage: release
+  script:
+    - cd "gluon"
+    - '[[ "$CI_BUILD_REF_NAME" != "master" ]] && export GLUON_AUTOUPDATER_BRANCH="nightly"'
+    - make update V=s
+    - ls output/images/sysupgrade
+    - make manifest
+    - ls output/images/sysupgrade
+  artifacts:
+    paths:
+      - "gluon/output/images/sysupgrade/*manifest"
+    expire_in: "1 month"
+  # not use dependencies will download from every job
+  # empty array not download artifacts
+  # dependencies: []

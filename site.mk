@@ -31,7 +31,7 @@ GLUON_SITE_PACKAGES += \
 #       respondd-module-lldp \
 
 # Allow overriding the these variables from the command line
-GLUON_RELEASE ?= $(patsubst v%,%,$(shell git -C $(GLUON_SITEDIR) describe --tags --dirty=+))
+GLUON_RELEASE ?= $(patsubst v%,%,$(shell echo $(git -C $(GLUON_SITEDIR) describe --tags --abbrev=0))-build$(CI_PIPELINE_ID))))
 GLUON_AUTOUPDATER_BRANCH ?= stable
 GLUON_AUTOUPDATER_ENABLED ?= 1
 GLUON_PRIORITY ?= 0
