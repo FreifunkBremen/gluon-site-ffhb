@@ -3,31 +3,31 @@
 # environmental and build settings
 KEYFILE="${KEYFILE:-"$HOME/.ecdsakey"}"
 GLUON_PRIORITY="${GLUON_PRIORITY:-7}"
+JOBS=${JOBS:-"$(grep -c '^processor' /proc/cpuinfo)"} 
 
 # start of script
 set -eu
 
 # determine absolute path of site repository
 if which realpath > /dev/null; then
-    export GLUON_SITEDIR="$(dirname "$(realpath "$0")")"
+    GLUON_SITEDIR="$(dirname "$(realpath "$0")")"
 else
-    export GLUON_SITEDIR="$(dirname "$(readlink -f "$0")")"
+    GLUON_SITEDIR="$(dirname "$(readlink -f "$0")")"
 fi
+export GLUON_SITEDIR
 GLUON_DIR="${GLUON_SITEDIR}/gluon/"
 
 # start building
 cd "${GLUON_DIR}"
 make update V=s
 
-if [ -z "${GLUON_TARGETS:-}" ]; then
-    GLUON_TARGETS="$(make list-targets)"
-fi
+GLUON_TARGETS=${GLUON_TARGETS:-"$(make list-targets)"}
 
 for target in $GLUON_TARGETS; do
     echo "Building target ${target}"
     schedtool -B -e \
-        make --jobs=$(grep -c '^processor' /proc/cpuinfo) GLUON_TARGET="$target" || \
-        make -j1 --output-sync=recurse GLUON_TARGET="$target" V=sc
+        make --jobs="$JOBS" --output-sync=recurse \
+            GLUON_TARGET="$target" V=s
 done
 
 # generate manifests
@@ -43,7 +43,7 @@ if [ -z "${GLUON_AUTOUPDATER_BRANCH:-}" ]; then
 fi
 
 # sign testing/nightly manifest if key is present
-if [ -n "$KEYFILE" -a -r "$KEYFILE" ]; then
+if [ -n "$KEYFILE" ] && [ -r "$KEYFILE" ]; then
     "${GLUON_DIR}/contrib/sign.sh" "$KEYFILE" \
-        "${GLUON_DIR}/output/images/sysupgrade/manifest"
+        "${GLUON_DIR}/output/images/sysupgrade/testing.manifest"
 fi
