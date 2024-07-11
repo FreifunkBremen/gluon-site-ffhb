@@ -25,8 +25,6 @@ features({
 packages({
   'respondd-module-airtime',
   'iwinfo',
-  'firewall',
-  'urngd',
 })
 
 if not device_class('tiny') then
