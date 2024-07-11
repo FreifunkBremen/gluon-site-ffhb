@@ -1,32 +1,32 @@
 features({
   'autoupdater',
+  'config-mode-core',
+  'config-mode-domain-select',
+  'config-mode-geo-location',
+  'config-mode-geo-location-osm',
   'ebtables-filter-multicast',
   'ebtables-filter-ra-dhcp',
   'ebtables-limit-arp',
   'mesh-batman-adv-15',
   'mesh-vpn-fastd',
+  'radv-filterd',
   'respondd',
+  'scheduled-domain-switch',
+  'setup-mode',
+  'speedtest',
+  'ssid-changer',
   'status-page',
   'web-advanced',
+  'web-mesh-vpn-fastd',
+  'web-private-wifi',
   'web-wizard',
 })
 
 packages({
-  'gluon-ssid-changer',
   'respondd-module-airtime',
-  'gluon-config-mode-core',
-  'gluon-config-mode-domain-select',
-  'gluon-config-mode-geo-location',
-  'gluon-config-mode-geo-location-osm',
-  'gluon-web-mesh-vpn-fastd',
-  'gluon-web-private-wifi',
-  'gluon-radv-filterd',
-  'gluon-setup-mode',
-  'gluon-speedtest',
   'iwinfo',
   'firewall',
   'urngd',
-  'gluon-scheduled-domain-switch',
 })
 
 if not device_class('tiny') then
